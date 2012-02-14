@@ -27,14 +27,94 @@ $(function(){
   });
   $(".D-3").resizable({
     maxWidth: 582,
+    maxHeight: 382,
     resize: function(event, ui) {
       var w3 = $(".D-3").css("width");
+      var h3 = $(".D-3").css("height");
       var w6 = w3.replace('px','');
-      var w9 = eval(w6);  //D-3の数値
+      var h6 = h3.replace('px','');
+      var w9 = eval(w6);  //D-3の幅数値
+      var h9 = eval(h6);  //D-3の高さ数値
       var w10 = 600 - w9
+      var h10 = 400 - h9
       var w11 = w10 / 2
       $(".D-1").width(w11);
       $(".D-2").width(w11);
+      $(".D-1C").height(h10).css('float','right');
     }
   });
 })
+
+
+
+$(function(){
+  $(".H-1").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-1").css('z-index','99999');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-1").css('z-index','99999');
+      $("span.remove").click(function (){
+        $(".H-1").remove();
+      })
+    }
+  });
+  $(".H-2").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-2").css('z-index','99998');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-2").css('z-index','99998');
+    }
+  });
+  $(".H-3").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-3").css('z-index','99997');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-3").css('z-index','99997');
+    }
+  });
+  $(".H-4").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-4").css('z-index','99996');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-4").css('z-index','99996');
+    }
+  });
+  $(".H-5").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-5").css('z-index','99995');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-5").css('z-index','99995');
+    }
+  });
+  $(".H-6").resizable({
+    handles: 'all',
+    resize: function(event, ui) {
+      $(".H-6").css('z-index','99995');
+    }
+  }).draggable({
+    containment: '.A-1',
+    create: function(event, ui) {
+      $(".H-6").css('z-index','99994');
+    }
+  });
+});
