@@ -118,3 +118,59 @@ $(function(){
     }
   });
 });
+
+
+$(function(){
+  $(".Z-SA").resizable({
+    maxWidth: 291,
+    handles: 'e',
+    resize: function(event, ui) {
+      var w1 = $(".Z-SA").css("width");
+      var w4 = w1.replace('px','');
+      var w7 = eval(w4);  //Z-SAの数値
+      var w10 = 300 - w7
+      var w11 = w10 / 2
+      var w12 = w7 * 2
+      $(".Z-SB").width(w11);
+      $(".Z-SC").width(w11);
+      $(".Z-AB").width(w10);
+      $(".Z-AC").width(w10);
+      $(".Z-AA").width(w12);
+    }
+  });
+  $(".Z-SB").resizable({
+    maxWidth: 291,
+    handles: 'e',
+    resize: function(event, ui) {
+      var w2 = $(".Z-SB").css("width");
+      var w5 = w2.replace('px','');
+      var w8 = eval(w5);  //Z-SBの数値
+      var w10 = 300 - w8
+      var w11 = w10 / 2
+      var w12 = w8 * 2
+      $("#debug").empty().prepend(w10);
+      $(".Z-SA").width(w11);
+      $(".Z-SC").width(w11);
+      $(".Z-AA").width(w10);
+      $(".Z-AC").width(w10);
+      $(".Z-AB").width(w12);
+    }
+  });
+  $(".Z-SC").resizable({
+    maxWidth: 291,
+    handles: 'e',
+    resize: function(event, ui) {
+      var w3 = $(".Z-SC").css("width");
+      var w6 = w3.replace('px','');
+      var w9 = eval(w6);  //Z-SCの幅数値
+      var w10 = 300 - w9
+      var w11 = w10 / 2
+      var w12 = w9 * 2
+      $(".Z-SA").width(w11);
+      $(".Z-SB").width(w11);
+      $(".Z-AC").width(w10);
+      $(".Z-AA").width(w10);
+      $(".Z-AB").width(w12);
+    }
+  });
+})
