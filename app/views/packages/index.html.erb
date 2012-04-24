@@ -1,6 +1,50 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
-
-<%= "index.html" %>
+<div id="svg_draw_2" class="stage">
+  <h1>SVGデモ</h1>
+  <div id="svg">
+    <div id="svgcanvas" class="demo">
+    </div>
+    <fieldset>
+      <label>
+        図形の種類
+        <br>
+        <select id="figureType">
+          <option selected="selected" value="circle">正円</option>
+          <option value="ellipse">楕円</option>
+          <option value="rect">矩形</option>
+        </select>
+      </label>
+      <label>
+        塗りの色
+        <br>
+        <span id="fill" class="color">
+          <%= image_tag 'select2.png' %>
+        </span>
+      </label>
+      <label>
+        線の色
+        <br>
+        <span id="stroke" class="color">
+          <%= image_tag 'select2.png' %>
+        </span>
+      </label>
+      <label>
+        線の太さ
+        <br>
+        <input id="strokeWidth" type="text" size="4" value="3" style="margin-right: 0px; padding-right: 0px;">
+        <%= image_tag 'spin-button.png', :style => 'cursor: pointer; padding: 0px; margin: 0px; vertical-align: middle;' %>
+      </label>
+      <label>
+        塗りの透明度
+        <br>
+        <input id="fillOpacity" type="text" size="4" value="1.0" style="margin-right: 0px; padding-right: 0px;">
+        <%= image_tag 'spin-button.png', :style => 'cursor: pointer; padding: 0px; margin: 0px; vertical-align: middle;' %>
+      </label>
+      <label>
+        線の透明度
+        <br>
+        <input id="strokeOpacity" type="text" size="4" value="1.0" style="margin-right: 0px; padding-right: 0px;">
+        <%= image_tag 'spin-button.png', :style => 'cursor: pointer; padding: 0px; margin: 0px; vertical-align: middle;' %>
+      </label>
+    </fieldset>
+  </div>
+</div>
