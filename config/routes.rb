@@ -3,4 +3,5 @@ Pleasure::Application.routes.draw do
   resources :users
   resources :administrators
   resources :announcements
+  resources :packages
 end
