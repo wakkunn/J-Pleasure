@@ -1,10 +1,10 @@
 /**
-* jQuery Spin 1.1.1
-*
-* Copyright (c) 2009 Naohiko MORI
-* Dual licensed under the MIT and GPL licenses.
-*
-**/
+ * jQuery Spin 1.1.1
+ *
+ * Copyright (c) 2009 Naohiko MORI
+ * Dual licensed under the MIT and GPL licenses.
+ *
+ **/
 (function($){
   var calcFloat = {
     get: function(num){
@@ -51,16 +51,8 @@
       timeInterval: 500,
       timeBlink: 200,
       btnClass: null,
-      btnCss: {
-        cursor: 'pointer', 
-        padding: 0, 
-        margin: 0, 
-        verticalAlign: 'middle'
-      },
-      txtCss: {
-        marginRight: 0, 
-        paddingRight: 0
-      },
+      btnCss: {cursor: 'pointer', padding: 0, margin: 0, verticalAlign: 'middle'},
+      txtCss: {marginRight: 0, paddingRight: 0},
       lock: false,
       decimal: null,
       beforeChange: null,
@@ -72,12 +64,14 @@
   $.fn.extend({
     spin: function(o){
       return this.each(function(){
-        o = o || {};
-        var opt = {};
-        $.each($.spin, function(k,v){
-          opt[k] = (typeof o[k]!='undefined' ? o[k] : v);
-        });
+				o = o || {};
+				var opt = {};
+				$.each($.spin, function(k,v){
+					opt[k] = (typeof o[k]!='undefined' ? o[k] : v);
+				});
+        
         var txt = $(this);
+        
         var spinBtnImage = opt.imageBasePath+opt.spinBtnImage;
         var btnSpin = new Image();
         btnSpin.src = spinBtnImage;
@@ -87,17 +81,17 @@
         var spinDownImage = opt.imageBasePath+opt.spinDownImage;
         var btnSpinDown = new Image();
         btnSpinDown.src = spinDownImage;
+        
         var btn = $(document.createElement('img'));
         btn.attr('src', spinBtnImage);
         if(opt.btnClass) btn.addClass(opt.btnClass);
         if(opt.btnCss) btn.css(opt.btnCss);
         if(opt.txtCss) txt.css(opt.txtCss);
         txt.after(btn);
-        if(opt.lock){
-          txt.focus(function(){
-            txt.blur();
-          });
+				if(opt.lock){
+					txt.focus(function(){txt.blur();});
         }
+        
         function spin(vector){
           var val = txt.val();
           var org_val = val;
@@ -116,9 +110,7 @@
                 src = (vector > 0 ? spinUpImage : spinDownImage);
                 btn.attr('src', src);
                 if(opt.timeBlink<opt.timeInterval)
-                  setTimeout(function(){
-                    btn.attr('src', spinBtnImage);
-                  }, opt.timeBlink);
+                  setTimeout(function(){btn.attr('src', spinBtnImage);}, opt.timeBlink);
               }
             }
           }
@@ -128,6 +120,7 @@
             if($.isFunction(opt.buttonDown)) opt.buttonDown.apply(txt, [val]);
           }
         }
+        
         btn.mousedown(function(e){
           var pos = e.pageY - btn.offset().top;
           var vector = (btn.height()/2 > pos ? 1 : -1);
@@ -135,8 +128,7 @@
             spin(vector);
             var tk = setTimeout(arguments.callee, opt.timeInterval);
             $(document).one('mouseup', function(){
-              clearTimeout(tk);
-              btn.attr('src', spinBtnImage);
+              clearTimeout(tk); btn.attr('src', spinBtnImage);
             });
           })();
           return false;
@@ -144,4 +136,4 @@
       });
     }
   });
-})(jQuery); 
+})(jQuery);
